@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd" >
+
+    <bean id="draw.userDAO" class="fr.paris.lutece.plugins.draw.business.UserDAO" />
+    <bean id="draw.userRest" class="fr.paris.lutece.plugins.draw.rs.UserRest" />
+    <bean id="draw.drawDAO" class="fr.paris.lutece.plugins.draw.business.DrawDAO" />
+    <bean id="draw.drawRest" class="fr.paris.lutece.plugins.draw.rs.DrawRest" />
+
+    <bean id="draw.swaggerRest" class="fr.paris.lutece.plugins.draw.rs.SwaggerRest" />
+
+</beans>

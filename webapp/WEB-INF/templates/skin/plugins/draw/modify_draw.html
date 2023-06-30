@@ -1,0 +1,30 @@
+<#include "tirage_tabs.html" />
+<@tabs2 tab="draw" />
+
+<@box>
+	<@boxHeader title='#i18n{draw.modify_draw.title}' />
+	<@boxBody>
+		<@tform class='form-horizontal' action='jsp/site/Portal.jsp' >
+				<@messages errors=errors />
+				<@input type="hidden" id="id" name="id" value="${draw.id}"/>
+				<@input type="hidden" value="${token}" name="token" />
+				<@input type="hidden" name="page" value="draw" /> 
+
+				<@formGroup labelFor='iduser' labelKey='#i18n{draw.modify_draw.labelIduser}' mandatory=true>
+					<@input type="text" id="iduser" name="iduser" value="${draw.iduser!''}"  tabIndex="1" />
+				</@formGroup>
+				<@formGroup labelFor='number' labelKey='#i18n{draw.modify_draw.labelNumber}' mandatory=true>
+					<@input type="text" id="number" name="number" value="${draw.number!''}"  tabIndex="2" />
+				</@formGroup>
+				<@formGroup labelFor='datecreation' labelKey='#i18n{draw.modify_draw.labelDatecreation}' mandatory=true>
+					<@input type="text" id="datecreation" name="datecreation" value="${draw.datecreation!''}"  tabIndex="3" />
+				</@formGroup>
+
+				<@formGroup>
+         			<@button name='action_modifyDraw' type='submit' tabIndex='3' title='#i18n{portal.util.labelModify}' buttonIcon='plus' />
+          			<@button name='view_manageDraws' type='submit' title='#i18n{portal.util.labelCancel}' buttonIcon='close' color='btn-secondary' cancel=true />
+				</@formGroup>
+		</@tform>
+	</@boxBody>
+</@box>
+

@@ -1,0 +1,580 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "version": "1.0.0",
+        "title": "Plugin draw",
+        "description": "Draw API"
+    },
+    "produces": [
+        "application/json"
+    ],
+    "paths": {
+        "/draws": {
+            "get": {
+                "description": "Get Draw list",
+                "tags": [
+                    "Draw"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Return the Draw list",
+                        "schema": {
+                            "$ref": "#/definitions/DrawListResult"
+                        }
+                    },
+                    "204": {
+                        "description": "No content",
+                        "schema": {
+                            "$ref": "#/definitions/NoContent"
+                        }
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "description": "Create Draw",
+                "tags": [
+                    "Draw"
+                ],
+                "parameters": [
+                    {
+                        "name": "iduser",
+                        "in": "formData",
+                        "description": "iduser",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "number",
+                        "in": "formData",
+                        "description": "number",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "datecreation",
+                        "in": "formData",
+                        "description": "datecreation",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Return the Draw created",
+                        "schema": {
+                            "$ref": "#/definitions/DrawResult"
+                        }
+                    },
+                    "400": {
+                        "description": "Empty parameter",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
+        },
+        "/draws/{id}": {
+            "get": {
+                "description": "Get Draw",
+                "tags": [
+                    "Draw"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of the Draw",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Return the Draw",
+                        "schema": {
+                            "$ref": "#/definitions/DrawResult"
+                        }
+                    },
+                    "404": {
+                        "description": "Resource not found",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            },
+            "put": {
+                "description": "Modify Draw",
+                "tags": [
+                    "Draw"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of the Draw to modify",
+                        "required": true,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "iduser",
+                        "in": "formData",
+                        "description": "iduser",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "number",
+                        "in": "formData",
+                        "description": "number",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "datecreation",
+                        "in": "formData",
+                        "description": "datecreation",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Return the Draw modified",
+                        "schema": {
+                            "$ref": "#/definitions/DrawResult"
+                        }
+                    },
+                    "400": {
+                        "description": "Empty parameter",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    },
+                    "404": {
+                        "description": "Resource not found",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "description": "Delete Draw",
+                "tags": [
+                    "Draw"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of the Draw to delete",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Return the Draw deleted (No Content)",
+                        "schema": {
+                            "$ref": "#/definitions/NoContent"
+                        }
+                    },
+                    "404": {
+                        "description": "Resource not found",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
+        },
+        "/users": {
+            "get": {
+                "description": "Get User list",
+                "tags": [
+                    "User"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Return the User list",
+                        "schema": {
+                            "$ref": "#/definitions/UserListResult"
+                        }
+                    },
+                    "204": {
+                        "description": "No content",
+                        "schema": {
+                            "$ref": "#/definitions/NoContent"
+                        }
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "description": "Create User",
+                "tags": [
+                    "User"
+                ],
+                "parameters": [
+                    {
+                        "name": "name",
+                        "in": "formData",
+                        "description": "name",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "lastname",
+                        "in": "formData",
+                        "description": "lastname",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "email",
+                        "in": "formData",
+                        "description": "email",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "phone",
+                        "in": "formData",
+                        "description": "phone",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "adress",
+                        "in": "formData",
+                        "description": "adress",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Return the User created",
+                        "schema": {
+                            "$ref": "#/definitions/UserResult"
+                        }
+                    },
+                    "400": {
+                        "description": "Empty parameter",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
+        },
+        "/users/{id}": {
+            "get": {
+                "description": "Get User",
+                "tags": [
+                    "User"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of the User",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Return the User",
+                        "schema": {
+                            "$ref": "#/definitions/UserResult"
+                        }
+                    },
+                    "404": {
+                        "description": "Resource not found",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            },
+            "put": {
+                "description": "Modify User",
+                "tags": [
+                    "User"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of the User to modify",
+                        "required": true,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "name",
+                        "in": "formData",
+                        "description": "name",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "lastname",
+                        "in": "formData",
+                        "description": "lastname",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "email",
+                        "in": "formData",
+                        "description": "email",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "phone",
+                        "in": "formData",
+                        "description": "phone",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "adress",
+                        "in": "formData",
+                        "description": "adress",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Return the User modified",
+                        "schema": {
+                            "$ref": "#/definitions/UserResult"
+                        }
+                    },
+                    "400": {
+                        "description": "Empty parameter",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    },
+                    "404": {
+                        "description": "Resource not found",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "description": "Delete User",
+                "tags": [
+                    "User"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of the User to delete",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Return the User deleted (No Content)",
+                        "schema": {
+                            "$ref": "#/definitions/NoContent"
+                        }
+                    },
+                    "404": {
+                        "description": "Resource not found",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "NoContent": {
+            "type": "object",
+            "properties": {
+                "result": {
+                    "type": "string"
+                },
+                "status": {
+                    "type": "string"
+                }
+            }
+        },
+        "Error": {
+            "type": "object",
+            "properties": {
+                "message": {
+                    "type": "string"
+                },
+                "errorCode": {
+                    "type": "string"
+                },
+                "status": {
+                    "type": "string"
+                }
+            }
+        },
+        "DrawListResult": {
+            "type": "object",
+            "properties": {
+                "result": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Draw"
+                    }
+                },
+                "status": {
+                    "type": "string"
+                }
+            }
+        },
+        "DrawResult": {
+            "type": "object",
+            "properties": {
+                "result": {
+                    "$ref": "#/definitions/Draw"
+                },
+                "status": {
+                    "type": "string"
+                }
+            }
+        },
+        "Draw": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "integer"
+                },
+                "iduser": {
+                    "type": "string"
+                },
+                "number": {
+                    "type": "string"
+                },
+                "datecreation": {
+                    "type": "string"
+                }
+            }
+        },
+        "UserListResult": {
+            "type": "object",
+            "properties": {
+                "result": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/User"
+                    }
+                },
+                "status": {
+                    "type": "string"
+                }
+            }
+        },
+        "UserResult": {
+            "type": "object",
+            "properties": {
+                "result": {
+                    "$ref": "#/definitions/User"
+                },
+                "status": {
+                    "type": "string"
+                }
+            }
+        },
+        "User": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "integer"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "lastname": {
+                    "type": "string"
+                },
+                "email": {
+                    "type": "string"
+                },
+                "phone": {
+                    "type": "string"
+                },
+                "adress": {
+                    "type": "string"
+                }
+            }
+        }
+    }
+}

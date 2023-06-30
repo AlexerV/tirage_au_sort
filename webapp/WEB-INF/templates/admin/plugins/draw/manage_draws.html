@@ -1,0 +1,59 @@
+<#include "managedraw_tabs.html" />
+<@tabs2 tab="draw" />
+
+<@box>
+	<@boxHeader title='#i18n{draw.manage_draw.title}' boxTools=true>
+		<@tform class='form-inline pull-right' name='manage_draw' action='jsp/admin/plugins/draw/ManageDraws.jsp'>
+			<@button type='submit' name='view_createDraw' buttonIcon='plus' title='#i18n{draw.manage_draws.buttonAdd}' />
+		</@tform>
+		<@tform class='form-inline pull-right' name='manage_draw' action='jsp/admin/plugins/draw/ManageDraws.jsp'>
+		  <input type='hidden' name='token' value="${token!''}" />
+			<@button type='submit' name='action_randDraw' buttonIcon='plus' title='Lancer tirage' />
+		</@tform>
+	</@boxHeader>
+	<@boxBody>    
+    <@messages infos=infos />
+    <@paginationAdmin paginator=paginator combo=1 />
+    <div class="clearfix"></div>
+    <@table>
+        <tr>
+            <th>Nom</th>
+            <th>Prenom</th>
+            
+            <th>#i18n{draw.manage_draws.columnNumber}</th>
+            <th>#i18n{draw.manage_draws.columnDatecreation}</th>
+            <th>#i18n{portal.util.labelActions}</th>
+        </tr>
+        <@tableHeadBodySeparator />
+        <#list draw_list as draw >
+        <tr>
+            <td>
+            	<#if draw.user?has_content>
+				${draw.user.name!""}
+				</#if>
+			</td>
+			<td>
+            	<#if draw.user?has_content>
+				${draw.user.lastname!""}
+				</#if>
+			</td>
+            <td>
+				${draw.number}
+			</td>
+            <td>
+				${draw.datecreation}
+			</td>
+        	<td>
+				<@aButton href='jsp/admin/plugins/draw/ManageDraws.jsp?view=modifyDraw&id=${draw.id}' title='#i18n{portal.util.labelModify}' hideTitle=['all'] buttonIcon='pencil' />
+						
+				<@aButton href='jsp/admin/plugins/draw/ManageDraws.jsp?action=confirmRemoveDraw&id=${draw.id}' title='#i18n{portal.util.labelDelete}' buttonIcon='trash' hideTitle=['all'] color='btn-danger'  />
+
+	        </td>
+        </tr>
+        </#list>
+    </@table>
+
+    <@paginationAdmin paginator=paginator />
+
+  </@boxBody>
+</@box>

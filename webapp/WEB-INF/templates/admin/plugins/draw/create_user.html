@@ -1,0 +1,31 @@
+<#include "managedraw_tabs.html" />
+<@tabs2 tab="user" />
+<@box>
+	<@boxHeader title='#i18n{draw.create_user.title}' />
+	<@boxBody>
+    <@tform name='create_user' action='jsp/admin/plugins/draw/ManageUsers.jsp' >
+
+        <@messages errors=errors />
+        <@input type="hidden" id="id" name="id"/>
+        <@input type="hidden" value="${token}" name="token" />
+
+		<@formGroup labelFor='name' labelKey='#i18n{draw.modify_user.labelName}' mandatory=true>
+			<@input type='text' id='name' name='name'  value='${user.name!\'\'}' tabIndex='0' />
+		</@formGroup>
+		<@formGroup labelFor='lastname' labelKey='#i18n{draw.modify_user.labelLastname}' mandatory=true>
+			<@input type='text' id='lastname' name='lastname'  value='${user.lastname!\'\'}' tabIndex='1' />
+		</@formGroup>
+		<@formGroup labelFor='email' labelKey='#i18n{draw.modify_user.labelEmail}' mandatory=true>
+			<@input type='text' id='email' name='email'  maxlength=255 value='${user.email!\'\'}' tabIndex='2' />
+		</@formGroup>
+		<@formGroup labelFor='phone' labelKey='#i18n{draw.modify_user.labelPhone}' mandatory=true>
+			<@input type='text' id='phone' name='phone'  value='${user.phone!\'\'}' tabIndex='3' />
+		</@formGroup>
+		<@formGroup labelFor='adress' labelKey='#i18n{draw.modify_user.labelAdress}' mandatory=true>
+			<@input type='text' id='adress' name='adress'  value='${user.adress!\'\'}' tabIndex='4' />
+		</@formGroup>
+				
+		<@actionButtons button1Name="action_createUser" button2Name="view_manageUser"/>
+    </@tform>
+	</@boxBody>
+</@box>

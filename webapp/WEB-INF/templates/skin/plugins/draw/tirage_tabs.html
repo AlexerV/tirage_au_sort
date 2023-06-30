@@ -1,0 +1,12 @@
+<#macro tabs2 tab >
+<@tabs>
+	<@tabList>
+			<li <#if tab="draw">class="active"</#if>>
+				<a href="jsp/site/Portal.jsp?page=draw">#i18n{draw.manage_draws.pageTitle}</a>
+			</li>
+			<li <#if tab="user">class="active"</#if>>
+				<a href="jsp/site/Portal.jsp?page=user">#i18n{draw.manage_users.pageTitle}</a>
+			</li>
+	</@tabList>
+</@tabs>
+</#macro>

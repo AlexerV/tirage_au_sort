@@ -1,0 +1,41 @@
+<#include "tirage_tabs.html" />
+<@tabs2 tab="draw" />
+
+<@row>
+	<@columns>
+		<@messages infos=infos />
+		<@tform action='jsp/site/Portal.jsp?page=draw'>
+			<@button type='submit' name='view_createDraw' class='pull-right' buttonIcon='plus' title='#i18n{draw.manage_draws.buttonAdd}' />
+		</@tform>
+
+    	<h4>#i18n{draw.manage_draws.title}</h4>
+        
+    	<@table>
+			<tr>
+					<th>#i18n{draw.manage_draws.columnIduser}</th>
+					<th>#i18n{draw.manage_draws.columnNumber}</th>
+					<th>#i18n{draw.manage_draws.columnDatecreation}</th>
+					<th>#i18n{portal.util.labelActions}</th>
+        	</tr>
+				<#list draw_list as draw >
+        	<tr>
+            <td>
+					${draw.iduser}
+            </td>    
+            <td>
+					${draw.number}
+            </td>    
+            <td>
+					${draw.datecreation}
+            </td>    
+			<td>
+				<@aButton href='jsp/site/Portal.jsp?page=draw&view=modifyDraw&id=${draw.id}' title='#i18n{portal.util.labelModify}' hideTitle=['all'] buttonIcon='pencil-square-o' />
+						
+				<@aButton href='jsp/site/Portal.jsp?page=draw&action=confirmRemoveDraw&id=${draw.id}' title='#i18n{portal.util.labelDelete}' buttonIcon='trash' hideTitle=['all'] color='btn-danger' />
+			</td>
+        </tr>
+        </#list>
+    	</@table>
+	</@columns>
+</@row>
+

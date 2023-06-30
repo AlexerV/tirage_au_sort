@@ -1,0 +1,49 @@
+<#include "tirage_tabs.html" />
+<@tabs2 tab="user" />
+
+<@row>
+	<@columns>
+		<@messages infos=infos />
+		<@tform action='jsp/site/Portal.jsp?page=user'>
+			<@button type='submit' name='view_createUser' class='pull-right' buttonIcon='plus' title='#i18n{draw.manage_users.buttonAdd}' />
+		</@tform>
+
+    	<h4>#i18n{draw.manage_users.title}</h4>
+        
+    	<@table>
+			<tr>
+					<th>#i18n{draw.manage_users.columnName}</th>
+					<th>#i18n{draw.manage_users.columnLastname}</th>
+					<th>#i18n{draw.manage_users.columnEmail}</th>
+					<th>#i18n{draw.manage_users.columnPhone}</th>
+					<th>#i18n{draw.manage_users.columnAdress}</th>
+					<th>#i18n{portal.util.labelActions}</th>
+        	</tr>
+				<#list user_list as user >
+        	<tr>
+            <td>
+					${user.name}
+            </td>    
+            <td>
+					${user.lastname}
+            </td>    
+            <td>
+					${user.email}
+            </td>    
+            <td>
+					${user.phone}
+            </td>    
+            <td>
+					${user.adress}
+            </td>    
+			<td>
+				<@aButton href='jsp/site/Portal.jsp?page=user&view=modifyUser&id=${user.id}' title='#i18n{portal.util.labelModify}' hideTitle=['all'] buttonIcon='pencil-square-o' />
+						
+				<@aButton href='jsp/site/Portal.jsp?page=user&action=confirmRemoveUser&id=${user.id}' title='#i18n{portal.util.labelDelete}' buttonIcon='trash' hideTitle=['all'] color='btn-danger' />
+			</td>
+        </tr>
+        </#list>
+    	</@table>
+	</@columns>
+</@row>
+

@@ -1,0 +1,36 @@
+<#include "tirage_tabs.html" />
+<@tabs2 tab="user" />
+
+<@box>
+	<@boxHeader title='#i18n{draw.modify_user.title}' />
+	<@boxBody>
+		<@tform class='form-horizontal' action='jsp/site/Portal.jsp' >
+				<@messages errors=errors />
+				<@input type="hidden" id="id" name="id" value="${user.id}"/>
+				<@input type="hidden" value="${token}" name="token" />
+				<@input type="hidden" name="page" value="user" /> 
+
+				<@formGroup labelFor='name' labelKey='#i18n{draw.modify_user.labelName}' mandatory=true>
+					<@input type="text" id="name" name="name" value="${user.name!''}"  tabIndex="1" />
+				</@formGroup>
+				<@formGroup labelFor='lastname' labelKey='#i18n{draw.modify_user.labelLastname}' mandatory=true>
+					<@input type="text" id="lastname" name="lastname" value="${user.lastname!''}"  tabIndex="2" />
+				</@formGroup>
+				<@formGroup labelFor='email' labelKey='#i18n{draw.modify_user.labelEmail}' mandatory=true>
+					<@input type="text" id="email" name="email" value="${user.email!''}"  maxlength=255 tabIndex="3" />
+				</@formGroup>
+				<@formGroup labelFor='phone' labelKey='#i18n{draw.modify_user.labelPhone}' mandatory=true>
+					<@input type="text" id="phone" name="phone" value="${user.phone!''}"  tabIndex="4" />
+				</@formGroup>
+				<@formGroup labelFor='adress' labelKey='#i18n{draw.modify_user.labelAdress}' mandatory=true>
+					<@input type="text" id="adress" name="adress" value="${user.adress!''}"  tabIndex="5" />
+				</@formGroup>
+
+				<@formGroup>
+         			<@button name='action_modifyUser' type='submit' tabIndex='5' title='#i18n{portal.util.labelModify}' buttonIcon='plus' />
+          			<@button name='view_manageUsers' type='submit' title='#i18n{portal.util.labelCancel}' buttonIcon='close' color='btn-secondary' cancel=true />
+				</@formGroup>
+		</@tform>
+	</@boxBody>
+</@box>
+
