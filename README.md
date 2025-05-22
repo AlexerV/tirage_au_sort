@@ -10,7 +10,6 @@ L’objectif du projet était de concevoir un **plugin pour Lutece** (framework 
 
 - **Java EE**
 - **Apache Tomcat**
-- **Maven**
 - **SQL / MariaDB**
 - **Lutece** (framework de la Ville de Paris)
 
