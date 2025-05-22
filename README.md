@@ -31,5 +31,7 @@ L’objectif du projet était de concevoir un **plugin pour Lutece** (framework 
 ## 🧑‍💻 Informations
 
 > Stage réalisé au service informatique de la Mairie de Paris
+> 
 > Dans le cadre du BTS SNIR (Systèmes Numériques option Informatique et Réseaux)
+> 
 > Durée : du 22 mai 2023 au 1er juillet 2023 (6 semaines)
